@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Medicine</string>
+    <string name="app_name" translatable="false">Consult Me</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
 
@@ -13,8 +13,8 @@
     <string name="menu_questions_accepted">Questions Accepted</string>
     <string name="menu_services_created">My Services</string>
     <string name="menu_notifications">Notifications</string>
-    <string name="menu_doctors">Doctors</string>
-    <string name="menu_patients">Patients</string>
+    <string name="menu_consultants">Consultants</string>
+    <string name="menu_clients">Clients</string>
     <string name="menu_questions">Questions</string>
     <string name="menu_more">More</string>
 
@@ -99,8 +99,8 @@
     <string name="str_email_invalid">Email Invalid</string>
 
     <string name="str_account_type_admin">Administrator</string>
-    <string name="str_account_type_doctor">Doctor</string>
-    <string name="str_account_type_patient">Patient</string>
+    <string name="str_account_type_consultant">Consultant</string>
+    <string name="str_account_type_client">Client</string>
 
     <string name="str_more_profile">Profile</string>
     <string name="str_more_about">About</string>

@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_admins"
-        android:name="com.medicine.app.ui.fragments.UsersAdminsFragment"
+        android:name="com.consult.me.app.ui.fragments.UsersAdminsFragment"
         android:label="@string/menu_admins"
         tools:layout="@layout/fragment_users" />
 
     <fragment
-        android:id="@+id/navigation_doctors"
-        android:name="com.medicine.app.ui.fragments.UsersDoctorsFragment"
-        android:label="@string/menu_doctors"
+        android:id="@+id/navigation_consultants"
+        android:name="com.consult.me.app.ui.fragments.UsersDoctorsFragment"
+        android:label="@string/menu_consultants"
         tools:layout="@layout/fragment_users" />
 
     <fragment
         android:id="@+id/navigation_patients"
-        android:name="com.medicine.app.ui.fragments.UsersPatientsFragment"
-        android:label="@string/menu_patients"
+        android:name="com.consult.me.app.ui.fragments.UsersPatientsFragment"
+        android:label="@string/menu_clients"
         tools:layout="@layout/fragment_users" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.medicine.app.ui.fragments.ProfileFragment"
+        android:name="com.consult.me.app.ui.fragments.ProfileFragment"
         android:label="@string/str_more_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_about"
-        android:name="com.medicine.app.ui.fragments.AboutFragment"
+        android:name="com.consult.me.app.ui.fragments.AboutFragment"
         android:label="@string/str_more_about"
         tools:layout="@layout/fragment_about" />
 </navigation>

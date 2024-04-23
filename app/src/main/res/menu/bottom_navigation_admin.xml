@@ -5,13 +5,13 @@
         android:icon="@drawable/ic_menu_admin"
         android:title="@string/menu_admins" />
     <item
-        android:id="@+id/navigation_doctors"
+        android:id="@+id/navigation_consultants"
         android:icon="@drawable/ic_doctor"
-        android:title="@string/menu_doctors" />
+        android:title="@string/menu_consultants" />
     <item
         android:id="@+id/navigation_patients"
         android:icon="@drawable/ic_patient"
-        android:title="@string/menu_patients" />
+        android:title="@string/menu_clients" />
     <item
         android:id="@+id/navigation_about"
         android:icon="@drawable/ic_about"

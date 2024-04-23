@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.medicine.app'
+    namespace 'com.consult.me.app'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.medicine.app"
+        applicationId "com.consult.me.app"
         minSdk 24
         targetSdk 34
         versionCode 1

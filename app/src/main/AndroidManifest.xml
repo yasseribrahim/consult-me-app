@@ -22,7 +22,7 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
-        android:name="com.medicine.app.CustomApplication"
+        android:name="com.consult.me.app.CustomApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -34,7 +34,7 @@
         android:exported="true"
         tools:targetApi="31">
         <activity
-            android:name="com.medicine.app.ui.activities.SplashActivity"
+            android:name="com.consult.me.app.ui.activities.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name"
@@ -46,91 +46,91 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.medicine.app.ui.activities.LoginActivity"
+            android:name="com.consult.me.app.ui.activities.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.RegistrationActivity"
+            android:name="com.consult.me.app.ui.activities.RegistrationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.admin.UserActivity"
+            android:name="com.consult.me.app.ui.activities.admin.UserActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.QuestionActivity"
+            android:name="com.consult.me.app.ui.activities.QuestionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.QuestionAnswersActivity"
+            android:name="com.consult.me.app.ui.activities.QuestionAnswersActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ColoredStatusBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.PrescriptionsActivity"
+            android:name="com.consult.me.app.ui.activities.PrescriptionsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.PrescriptionActivity"
+            android:name="com.consult.me.app.ui.activities.PrescriptionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.ReviewsActivity"
+            android:name="com.consult.me.app.ui.activities.ReviewsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.admin.AboutEditActivity"
+            android:name="com.consult.me.app.ui.activities.admin.AboutEditActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.admin.HomeActivity"
+            android:name="com.consult.me.app.ui.activities.admin.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ColoredStatusBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.patient.HomeActivity"
+            android:name="com.consult.me.app.ui.activities.client.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ColoredStatusBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.doctor.HomeActivity"
+            android:name="com.consult.me.app.ui.activities.consultant.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ColoredStatusBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.MessagingActivity"
+            android:name="com.consult.me.app.ui.activities.MessagingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.ForgetPasswordActivity"
+            android:name="com.consult.me.app.ui.activities.ForgetPasswordActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ColoredStatusBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.medicine.app.ui.activities.ProfileEditActivity"
+            android:name="com.consult.me.app.ui.activities.ProfileEditActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"
@@ -161,7 +161,7 @@
             android:value="@string/default_notification_channel_id" />
 
         <service
-            android:name="com.medicine.app.utilities.firebase.CustomFirebaseMessagingService"
+            android:name="com.consult.me.app.utilities.firebase.CustomFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
