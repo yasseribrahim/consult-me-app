@@ -1,0 +1,137 @@
+<resources>
+    <string name="app_name" translatable="false">Medicine</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <string name="str_periodic_format">%s / Hour</string>
+    <string name="str_my_patients">My Patients</string>
+    <string name="str_my_doctors">My Doctors</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_admins">Admins</string>
+    <string name="menu_services">Services</string>
+    <string name="menu_questions_accepted">Questions Accepted</string>
+    <string name="menu_services_created">My Services</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_doctors">Doctors</string>
+    <string name="menu_patients">Patients</string>
+    <string name="menu_questions">Questions</string>
+    <string name="menu_more">More</string>
+
+    <string name="str_correct_answer">Correct Answer</string>
+    <string name="str_save">Save</string>
+    <string name="str_enter_value">Enter Value</string>
+    <string name="str_ok">Ok</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_message_request_camera_and_storage">يحتاج هذا التطبيق إلى الوصول إلى الكاميرا ومساحة التخزين الخاصة بك حتى تتمكن من التقاط الصور.</string>
+
+    <string name="str_message_added_successfully">Added Successfully</string>
+    <string name="str_message_updated_successfully">Updated Successfully</string>
+    <string name="str_message_delete_successfully">Deleted Successfully</string>
+
+    <string name="str_title_add_update">Add / Update</string>
+    <string name="str_chat_edit_text_hint">Enter your message</string>
+    <string name="str_loading">Loading...</string>
+    <string name="str_empty_data">Not Found Data</string>
+    <string name="str_login">Login</string>
+    <string name="str_delete">Delete</string>
+    <string name="str_add_new">Add New</string>
+    <string name="str_review">Review</string>
+    <string name="str_chat">Chat</string>
+    <string name="str_add_answer">Add Answer</string>
+    <string name="str_accepted_price">Accepted Price</string>
+    <string name="str_answers">%s Answer(s)</string>
+    <string name="str_answers_title">Answers</string>
+    <string name="str_search_hint">Search</string>
+    <string name="str_registration">Registration</string>
+    <string name="str_forget_password"><u>Forget Password</u></string>
+    <string name="str_please_wait">Please Wait...</string>
+    <string name="str_please_type_message_firstly">Please type message firstly</string>
+
+    <string name="str_password_length_invalid">Password Invalid Length, Password Must Be At Least 6 Digits</string>
+    <string name="str_password_confirm_invalid">Confirm Password Invalid</string>
+    <string name="str_full_name_invalid">Full Name Invalid</string>
+    <string name="str_phone_invalid">Phone Invalid</string>
+    <string name="str_address_invalid">Address Invalid</string>
+    <string name="str_signup_fail">SignUp Fail: %s</string>
+    <string name="str_save_fail">Save Fail: %s</string>
+    <string name="str_invalid_username_or_password">Invalid username or password</string>
+    <string name="str_login_successful">Login Successful</string>
+    <string name="str_username_invalid">Invalid Username</string>
+
+    <string name="str_medications">Medications</string>
+    <string name="str_add_doctor">Add Doctor</string>
+    <string name="str_add_medication">Add Medication</string>
+    <string name="str_medication_name">Medication Name</string>
+    <string name="str_medication_name_hint">Enter Medication Name</string>
+    <string name="str_medication_name_alert">Invalid Medication Name</string>
+    <string name="str_dosage">Dosage</string>
+    <string name="str_dosage_hint">Enter Dosage</string>
+    <string name="str_dosage_alert">Invalid Dosage</string>
+    <string name="str_periodic">Periodic / Hour</string>
+    <string name="str_periodic_hint">Enter Periodic</string>
+    <string name="str_periodic_alert">Invalid Periodic</string>
+
+    <string name="str_title_question">Question</string>
+    <string name="str_title_prescription">Prescription</string>
+    <string name="str_title_prescriptions">Prescriptions</string>
+    <string name="str_title">Title</string>
+    <string name="str_title_hint">Enter Title</string>
+    <string name="str_description">Description</string>
+    <string name="str_description_hint">Enter Description</string>
+    <string name="str_date">Date</string>
+    <string name="str_date_hint">Select Date</string>
+
+    <string name="str_username">Username</string>
+    <string name="str_password">Password</string>
+    <string name="str_password_confirm">Password Confirm</string>
+    <string name="str_full_name">Full Name</string>
+    <string name="str_phone">Phone</string>
+    <string name="str_address">Address</string>
+    <string name="str_username_hint" translatable="false">user@example.com</string>
+    <string name="str_password_hint">Enter your password</string>
+    <string name="str_default_password" translatable="false">12345678</string>
+    <string name="str_password_confirm_hint">Enter Password Confirm</string>
+    <string name="str_full_name_hint">Enter Full Name</string>
+    <string name="str_phone_hint">Enter Phone</string>
+    <string name="str_address_hint">Enter Address</string>
+    <string name="str_email">Email</string>
+    <string name="str_email_invalid">Email Invalid</string>
+
+    <string name="str_account_type_admin">Administrator</string>
+    <string name="str_account_type_doctor">Doctor</string>
+    <string name="str_account_type_patient">Patient</string>
+
+    <string name="str_more_profile">Profile</string>
+    <string name="str_more_about">About</string>
+    <string name="str_more_contacts">Contacts &amp; Description</string>
+    <string name="str_more_logout">Logout</string>
+
+    <string name="str_about_content">Content:</string>
+    <string name="str_about_conditions">The conditions:</string>
+    <string name="str_about_objectives">Objectives:</string>
+    <string name="str_about_content_hint_ar">Arabic Content</string>
+    <string name="str_about_conditions_hint_ar">Arabic Conditions</string>
+    <string name="str_about_objectives_hint_ar">Arabic Objectives</string>
+    <string name="str_about_content_hint_en">English Content</string>
+    <string name="str_about_conditions_hint_en">English Conditions</string>
+    <string name="str_about_objectives_hint_en">English Objectives</string>
+
+    <string name="str_back_to_home">Back to Home</string>
+    <string name="str_change_avatar"><u>Change Avatar</u></string>
+    <string name="str_account_info">Account Info</string>
+    <string name="str_account_info_edit">Edit Account Info</string>
+    <string name="str_edit">Edit</string>
+    <string name="str_accept">Accept</string>
+
+    <string name="str_your_review">Review</string>
+    <string name="str_note">Note</string>
+    <string name="str_note_hint">Type Note</string>
+    <string name="str_review_hint">Please enter review value</string>
+
+    <string name="str_notification_message_prescription">New Prescription %s at %s</string>
+    <string name="str_notification_message_question">New Question %s at %s</string>
+
+    <string name="str_category">Category</string>
+    <string name="str_category_hint">Select Category</string>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_patients">
+
+    <fragment
+        android:id="@+id/navigation_patients"
+        android:name="com.medicine.app.ui.fragments.UsersPatientsFragment"
+        android:label="@string/menu_patients"
+        tools:layout="@layout/fragment_users" />
+
+    <fragment
+        android:id="@+id/navigation_questions"
+        android:name="com.medicine.app.ui.fragments.QuestionsFragment"
+        android:label="@string/menu_questions"
+        tools:layout="@layout/fragment_questions" />
+
+    <fragment
+        android:id="@+id/navigation_questions_accepted"
+        android:name="com.medicine.app.ui.fragments.QuestionsAcceptedFragment"
+        android:label="@string/menu_questions_accepted"
+        tools:layout="@layout/fragment_questions" />
+
+    <fragment
+        android:id="@+id/navigation_my_patients"
+        android:name="com.medicine.app.ui.fragments.PersonsFragment"
+        android:label="@string/str_my_patients"
+        tools:layout="@layout/fragment_persons" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.medicine.app.ui.fragments.ProfileFragment"
+        android:label="@string/str_more_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.medicine.app.ui.fragments.AboutFragment"
+        android:label="@string/str_more_about"
+        tools:layout="@layout/fragment_about" />
+</navigation>

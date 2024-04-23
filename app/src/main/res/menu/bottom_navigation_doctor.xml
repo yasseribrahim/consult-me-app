@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_patients"
+        android:icon="@drawable/ic_patient"
+        android:title="@string/menu_patients" />
+    <item
+        android:id="@+id/navigation_questions"
+        android:icon="@drawable/ic_questions"
+        android:title="@string/menu_questions" />
+    <item
+        android:id="@+id/navigation_questions_accepted"
+        android:icon="@drawable/ic_questions_accepted"
+        android:title="@string/menu_questions_accepted" />
+    <item
+        android:id="@+id/navigation_my_patients"
+        android:icon="@drawable/ic_patient"
+        android:title="@string/str_my_patients" />
+    <item
+        android:id="@+id/navigation_about"
+        android:icon="@drawable/ic_about"
+        android:title="@string/str_more_about" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_account_circle"
+        android:title="@string/str_more_profile" />
+</menu>
