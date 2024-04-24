@@ -189,11 +189,9 @@ public class PersonsFragment extends Fragment implements UsersCallback, LinksCal
 
     @Override
     public void onViewListener(User user) {
-        if (user.isClient()) {
-            Intent intent = new Intent(getContext(), QuestionsRepliedActivity.class);
-            intent.putExtra(Constants.ARG_OBJECT, user.getUsername());
-            startActivity(intent);
-        }
+        Intent intent = new Intent(getContext(), QuestionsRepliedActivity.class);
+        intent.putExtra(Constants.ARG_OBJECT, user);
+        startActivity(intent);
     }
 
     @Override

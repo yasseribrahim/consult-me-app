@@ -14,6 +14,7 @@ import com.consult.me.app.Constants;
 import com.consult.me.app.R;
 import com.consult.me.app.databinding.ActivityQuestionsRepliedBinding;
 import com.consult.me.app.models.Question;
+import com.consult.me.app.models.User;
 import com.consult.me.app.persenters.question.QuestionsCallback;
 import com.consult.me.app.persenters.question.QuestionsPresenter;
 import com.consult.me.app.ui.adptres.QuestionsAdapter;
@@ -27,7 +28,7 @@ public class QuestionsRepliedActivity extends BaseActivity implements QuestionsC
     private QuestionsPresenter presenter;
     private QuestionsAdapter adapter;
     private List<Question> questions, searchedQuestions;
-    private String clientId;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +37,10 @@ public class QuestionsRepliedActivity extends BaseActivity implements QuestionsC
         binding = ActivityQuestionsRepliedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        clientId = getIntent().getParcelableExtra(Constants.ARG_OBJECT);
-        binding.username.setText(clientId);
+        user = getIntent().getParcelableExtra(Constants.ARG_OBJECT);
+        binding.username.setText(user.getUsername());
 
         presenter = new QuestionsPresenter(this);
-        clientId = getIntent().getExtras().getString(Constants.ARG_OBJECT);
         binding.refreshLayout.setColorSchemeResources(R.color.refreshColor1, R.color.refreshColor2, R.color.refreshColor3, R.color.refreshColor4);
         binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -80,7 +80,7 @@ public class QuestionsRepliedActivity extends BaseActivity implements QuestionsC
     }
 
     private void load() {
-        presenter.getQuestionsReplied(clientId);
+        presenter.getQuestionsReplied(user);
     }
 
     @Override

@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.consult.me.app.Constants;
 import com.consult.me.app.models.Answer;
 import com.consult.me.app.models.Question;
+import com.consult.me.app.models.User;
 import com.consult.me.app.persenters.BasePresenter;
 import com.consult.me.app.utilities.helpers.StorageHelper;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -150,16 +151,18 @@ public class QuestionsPresenter implements BasePresenter {
         });
     }
 
-    public void getQuestionsReplied(String clientId) {
+    public void getQuestionsReplied(User user) {
         callback.onShowLoading();
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Question> questions = new ArrayList<>();
-                var currentUsername = StorageHelper.getCurrentUser().getUsername();
+                var consultantId = StorageHelper.getCurrentUser().isConsultant() ? StorageHelper.getCurrentUser().getUsername() : user.getUsername();
+                var clientId = StorageHelper.getCurrentUser().isClient() ? StorageHelper.getCurrentUser().getUsername() : user.getUsername();
+
                 for (var child : snapshot.getChildren()) {
                     var question = child.getValue(Question.class);
-                    var accepted = question.getCreatedBy().equalsIgnoreCase(clientId) && question.getAnswers().contains(new Answer(currentUsername));
+                    var accepted = question.getCreatedBy().equalsIgnoreCase(clientId) && question.getAnswers().contains(new Answer(consultantId));
                     if (accepted) {
                         questions.add(question);
                     }
