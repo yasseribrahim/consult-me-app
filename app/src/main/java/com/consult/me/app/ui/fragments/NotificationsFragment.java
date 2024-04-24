@@ -15,17 +15,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.consult.me.app.Constants;
+import com.consult.me.app.R;
+import com.consult.me.app.databinding.FragmentNotificationsBinding;
 import com.consult.me.app.models.Notification;
 import com.consult.me.app.models.Prescription;
 import com.consult.me.app.models.Question;
-import com.consult.me.app.ui.activities.PrescriptionActivity;
-import com.consult.me.app.ui.activities.QuestionActivity;
-import com.consult.me.app.Constants;
 import com.consult.me.app.persenters.notification.NotificationsCallback;
 import com.consult.me.app.persenters.notification.NotificationsPresenter;
+import com.consult.me.app.ui.activities.QuestionActivity;
+import com.consult.me.app.ui.activities.SplashActivity;
 import com.consult.me.app.ui.adptres.NotificationsAdapter;
-import com.consult.me.app.R;
-import com.consult.me.app.databinding.FragmentNotificationsBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -132,7 +132,7 @@ public class NotificationsFragment extends Fragment implements NotificationsCall
             question.setId(notification.getPrescriptionId());
             intent.putExtra(Constants.ARG_OBJECT, question);
         } else if (notification.getPrescriptionId() != null && notification.getPrescriptionId().startsWith("prescription")) {
-            intent = new Intent(getContext(), PrescriptionActivity.class);
+            intent = new Intent(getContext(), SplashActivity.class);
             var prescription = new Prescription();
             prescription.setId(notification.getPrescriptionId());
             intent.putExtra(Constants.ARG_OBJECT, prescription);

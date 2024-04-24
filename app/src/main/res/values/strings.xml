@@ -3,20 +3,13 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
 
-    <string name="str_periodic_format">%s / Hour</string>
     <string name="str_my_clients">My Clients</string>
     <string name="str_my_consultants">My Consultants</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_admins">Admins</string>
-    <string name="menu_services">Services</string>
     <string name="menu_questions_accepted">Questions Accepted</string>
-    <string name="menu_services_created">My Services</string>
-    <string name="menu_notifications">Notifications</string>
     <string name="menu_consultants">Consultants</string>
     <string name="menu_clients">Clients</string>
     <string name="menu_questions">Questions</string>
-    <string name="menu_more">More</string>
 
     <string name="str_correct_answer">Correct Answer</string>
     <string name="str_save">Save</string>
@@ -40,7 +33,6 @@
     <string name="str_review">Review</string>
     <string name="str_chat">Chat</string>
     <string name="str_add_answer">Add Answer</string>
-    <string name="str_accepted_price">Accepted Price</string>
     <string name="str_answers">%s Answer(s)</string>
     <string name="str_answers_title">Answers</string>
     <string name="str_search_hint">Search</string>
@@ -60,22 +52,9 @@
     <string name="str_login_successful">Login Successful</string>
     <string name="str_username_invalid">Invalid Username</string>
 
-    <string name="str_medications">Medications</string>
     <string name="str_add_doctor">Add Doctor</string>
-    <string name="str_add_medication">Add Medication</string>
-    <string name="str_medication_name">Medication Name</string>
-    <string name="str_medication_name_hint">Enter Medication Name</string>
-    <string name="str_medication_name_alert">Invalid Medication Name</string>
-    <string name="str_dosage">Dosage</string>
-    <string name="str_dosage_hint">Enter Dosage</string>
-    <string name="str_dosage_alert">Invalid Dosage</string>
-    <string name="str_periodic">Periodic / Hour</string>
-    <string name="str_periodic_hint">Enter Periodic</string>
-    <string name="str_periodic_alert">Invalid Periodic</string>
 
     <string name="str_title_question">Question</string>
-    <string name="str_title_prescription">Prescription</string>
-    <string name="str_title_prescriptions">Prescriptions</string>
     <string name="str_title">Title</string>
     <string name="str_title_hint">Enter Title</string>
     <string name="str_description">Description</string>
@@ -106,7 +85,6 @@
     <string name="str_more_profile">Profile</string>
     <string name="str_more_about">About</string>
     <string name="str_more_categories">Categories</string>
-    <string name="str_more_contacts">Contacts &amp; Description</string>
     <string name="str_more_logout">Logout</string>
 
     <string name="str_about_content">Content:</string>
@@ -115,16 +93,12 @@
     <string name="str_about_content_hint_ar">Arabic Content</string>
     <string name="str_about_conditions_hint_ar">Arabic Conditions</string>
     <string name="str_about_objectives_hint_ar">Arabic Objectives</string>
-    <string name="str_about_content_hint_en">English Content</string>
-    <string name="str_about_conditions_hint_en">English Conditions</string>
-    <string name="str_about_objectives_hint_en">English Objectives</string>
 
     <string name="str_back_to_home">Back to Home</string>
     <string name="str_change_avatar"><u>Change Avatar</u></string>
     <string name="str_account_info">Account Info</string>
     <string name="str_account_info_edit">Edit Account Info</string>
     <string name="str_edit">Edit</string>
-    <string name="str_accept">Accept</string>
 
     <string name="str_your_review">Review</string>
     <string name="str_note">Note</string>
