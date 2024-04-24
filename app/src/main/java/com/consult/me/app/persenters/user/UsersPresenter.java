@@ -41,7 +41,7 @@ public class UsersPresenter implements BasePresenter {
                     User user = dataSnapshot.getValue(User.class);
                     if (user.getType() == Constants.USER_TYPE_ADMIN) {
                         adminCount++;
-                    } else if (user.getType() == Constants.USER_TYPE_DOCTOR) {
+                    } else if (user.getType() == Constants.USER_TYPE_CONSULTANT) {
                         caraftsCount++;
                     } else {
                         clientsCount++;

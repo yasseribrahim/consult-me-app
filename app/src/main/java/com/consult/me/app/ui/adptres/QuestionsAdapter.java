@@ -44,6 +44,7 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
         holder.binding.date.setText(format.format(calendar.getTime()));
         holder.binding.username.setText(question.getCreatedBy());
+        holder.binding.category.setText(question.getCategoryName());
 
         holder.binding.date.setText(DatesUtils.formatDateOnly(question.getDate()));
     }

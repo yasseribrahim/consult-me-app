@@ -76,8 +76,8 @@ public class LinksPresenter implements BasePresenter {
                 for (var child : snapshot.getChildren()) {
                     var link = child.getValue(Link.class);
                     var currentUser = StorageHelper.getCurrentUser();
-                    var accepted = (currentUser.isPatient() && link.getPatientId().equalsIgnoreCase(currentUser.getUsername())) ||
-                            (currentUser.isDoctor() && link.getDoctorId().equalsIgnoreCase(currentUser.getUsername()));
+                    var accepted = (currentUser.isClient() && link.getClientId().equalsIgnoreCase(currentUser.getUsername())) ||
+                            (currentUser.isConsultant() && link.getConsultantId().equalsIgnoreCase(currentUser.getUsername()));
                     if (accepted) {
                         links.add(link);
                     }

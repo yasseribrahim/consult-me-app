@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_consultants"
-        android:name="com.consult.me.app.ui.fragments.UsersDoctorsFragment"
+        android:name="com.consult.me.app.ui.fragments.UsersConsultantsFragment"
         android:label="@string/menu_consultants"
         tools:layout="@layout/fragment_users" />
 
@@ -18,9 +18,9 @@
         tools:layout="@layout/fragment_questions_created" />
 
     <fragment
-        android:id="@+id/navigation_my_doctors"
+        android:id="@+id/navigation_my_consultants"
         android:name="com.consult.me.app.ui.fragments.PersonsFragment"
-        android:label="@string/str_my_doctors"
+        android:label="@string/str_my_consultants"
         tools:layout="@layout/fragment_persons" />
 
     <fragment

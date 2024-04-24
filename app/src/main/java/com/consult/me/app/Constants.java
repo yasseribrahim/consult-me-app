@@ -2,8 +2,8 @@ package com.consult.me.app;
 
 public interface Constants {
     int USER_TYPE_ADMIN = 1;
-    int USER_TYPE_DOCTOR = 2;
-    int USER_TYPE_PATIENT = 3;
+    int USER_TYPE_CONSULTANT = 2;
+    int USER_TYPE_CLIENT = 3;
     String NODE_NAME_MESSAGING = "messages";
     String NODE_NAME_ABOUT = "about";
     String NODE_NAME_NOTIFICATIONS= "notifications";

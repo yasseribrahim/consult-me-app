@@ -20,7 +20,8 @@ public class User implements Parcelable {
     private int type;
     private String token;
     private String description;
-
+    private String categoryId;
+    private String categoryName;
     private Contacts contacts;
     private List<String> services;
     private List<Review> reviews;
@@ -145,12 +146,28 @@ public class User implements Parcelable {
         return token;
     }
 
-    public boolean isDoctor() {
-        return Constants.USER_TYPE_DOCTOR == type;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public boolean isPatient() {
-        return Constants.USER_TYPE_PATIENT == type;
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public boolean isConsultant() {
+        return Constants.USER_TYPE_CONSULTANT == type;
+    }
+
+    public boolean isClient() {
+        return Constants.USER_TYPE_CLIENT == type;
     }
 
     public boolean isAdmin() {
@@ -222,6 +239,8 @@ public class User implements Parcelable {
         dest.writeInt(this.type);
         dest.writeString(this.token);
         dest.writeString(this.description);
+        dest.writeString(this.categoryId);
+        dest.writeString(this.categoryName);
         dest.writeParcelable(this.contacts, flags);
         dest.writeStringList(this.services);
         dest.writeTypedList(this.reviews);
@@ -239,6 +258,8 @@ public class User implements Parcelable {
         this.type = source.readInt();
         this.token = source.readString();
         this.description = source.readString();
+        this.categoryId = source.readString();
+        this.categoryName = source.readString();
         this.contacts = source.readParcelable(Contacts.class.getClassLoader());
         this.services = source.createStringArrayList();
         this.reviews = source.createTypedArrayList(Review.CREATOR);
@@ -256,6 +277,8 @@ public class User implements Parcelable {
         this.type = in.readInt();
         this.token = in.readString();
         this.description = in.readString();
+        this.categoryId = in.readString();
+        this.categoryName = in.readString();
         this.contacts = in.readParcelable(Contacts.class.getClassLoader());
         this.services = in.createStringArrayList();
         this.reviews = in.createTypedArrayList(Review.CREATOR);

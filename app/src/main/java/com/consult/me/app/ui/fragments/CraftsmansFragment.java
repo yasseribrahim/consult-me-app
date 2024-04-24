@@ -81,7 +81,7 @@ public class CraftsmansFragment extends Fragment implements UsersCallback, Craft
     }
 
     private void load() {
-        presenter.getUsers(Constants.USER_TYPE_DOCTOR);
+        presenter.getUsers(Constants.USER_TYPE_CONSULTANT);
     }
 
     @Override

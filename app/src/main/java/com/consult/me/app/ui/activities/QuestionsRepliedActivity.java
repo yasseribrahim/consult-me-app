@@ -1,51 +1,46 @@
-package com.consult.me.app.ui.fragments;
+package com.consult.me.app.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.consult.me.app.Constants;
 import com.consult.me.app.R;
-import com.consult.me.app.databinding.FragmentQuestionsAcceptedBinding;
+import com.consult.me.app.databinding.ActivityQuestionsRepliedBinding;
 import com.consult.me.app.models.Question;
 import com.consult.me.app.persenters.question.QuestionsCallback;
 import com.consult.me.app.persenters.question.QuestionsPresenter;
-import com.consult.me.app.ui.activities.QuestionActivity;
 import com.consult.me.app.ui.adptres.QuestionsAdapter;
+import com.consult.me.app.utilities.helpers.LocaleHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsAcceptedFragment extends Fragment implements QuestionsCallback, QuestionsAdapter.OnQuestionsClickListener {
-    private FragmentQuestionsAcceptedBinding binding;
+public class QuestionsRepliedActivity extends BaseActivity implements QuestionsCallback, QuestionsAdapter.OnQuestionsClickListener {
+    private ActivityQuestionsRepliedBinding binding;
     private QuestionsPresenter presenter;
     private QuestionsAdapter adapter;
     private List<Question> questions, searchedQuestions;
-
-    public static QuestionsAcceptedFragment newInstance() {
-        Bundle args = new Bundle();
-        QuestionsAcceptedFragment fragment = new QuestionsAcceptedFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private String clientId;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentQuestionsAcceptedBinding.inflate(inflater);
+    protected void onCreate(Bundle savedInstanceState) {
+        LocaleHelper.setLocale(this, getCurrentLanguage().getLanguage());
+        super.onCreate(savedInstanceState);
+        binding = ActivityQuestionsRepliedBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        clientId = getIntent().getParcelableExtra(Constants.ARG_OBJECT);
+        binding.username.setText(clientId);
 
         presenter = new QuestionsPresenter(this);
-
+        clientId = getIntent().getExtras().getString(Constants.ARG_OBJECT);
         binding.refreshLayout.setColorSchemeResources(R.color.refreshColor1, R.color.refreshColor2, R.color.refreshColor3, R.color.refreshColor4);
         binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -73,26 +68,24 @@ public class QuestionsAcceptedFragment extends Fragment implements QuestionsCall
 
         questions = new ArrayList<>();
         searchedQuestions = new ArrayList<>();
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new QuestionsAdapter(searchedQuestions, this, false);
         binding.recyclerView.setAdapter(adapter);
-
-        return binding.getRoot();
-    }
-
-    private void load() {
-        presenter.getQuestionsAccepted();
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
         load();
     }
 
+    private void load() {
+        presenter.getQuestionsReplied(clientId);
+    }
+
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    public void onDestroy() {
+        super.onDestroy();
         if (presenter != null) {
             presenter.onDestroy();
         }
@@ -117,7 +110,7 @@ public class QuestionsAcceptedFragment extends Fragment implements QuestionsCall
 
     @Override
     public void onFailure(String message, View.OnClickListener listener) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void search(String searchedText) {
@@ -153,7 +146,7 @@ public class QuestionsAcceptedFragment extends Fragment implements QuestionsCall
 
     @Override
     public void onQuestionViewListener(Question question) {
-        Intent intent = new Intent(getContext(), QuestionActivity.class);
+        Intent intent = new Intent(this, QuestionActivity.class);
         intent.putExtra(Constants.ARG_OBJECT, question);
         startActivity(intent);
     }
@@ -170,11 +163,6 @@ public class QuestionsAcceptedFragment extends Fragment implements QuestionsCall
 
     @Override
     public void onDeleteQuestionComplete(Question question) {
-        int index = searchedQuestions.indexOf(question);
-        if (index != -1) {
-            searchedQuestions.remove(index);
-            adapter.notifyItemRemoved(index);
-        }
-        Toast.makeText(getContext(), R.string.str_message_delete_successfully, Toast.LENGTH_LONG).show();
+
     }
 }

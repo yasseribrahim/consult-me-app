@@ -13,8 +13,10 @@ public class Question implements Parcelable {
     private String description;
     private String createdBy;
     private Date date;
+    private String categoryId;
+    private String categoryName;
     private List<Answer> answers;
-    private Answer acceptedAnswer;
+    private boolean closed;
 
     public Question(String id) {
         this.id = id;
@@ -74,16 +76,28 @@ public class Question implements Parcelable {
         return createdBy;
     }
 
-    public void setAcceptedAnswer(Answer acceptedAnswer) {
-        this.acceptedAnswer = acceptedAnswer;
+    public void setClosed(boolean closed) {
+        this.closed = closed;
     }
 
-    public Answer getAcceptedAnswer() {
-        return acceptedAnswer;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public boolean isAccepted() {
-        return acceptedAnswer != null;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public boolean isClosed() {
+        return closed;
     }
 
     @Override
@@ -106,8 +120,10 @@ public class Question implements Parcelable {
         dest.writeString(this.description);
         dest.writeString(this.createdBy);
         dest.writeLong(this.date != null ? this.date.getTime() : -1);
+        dest.writeString(this.categoryId);
+        dest.writeString(this.categoryName);
         dest.writeTypedList(this.answers);
-        dest.writeParcelable(this.acceptedAnswer, flags);
+        dest.writeByte(this.closed ? (byte) 1 : (byte) 0);
     }
 
     public void readFromParcel(Parcel source) {
@@ -117,8 +133,10 @@ public class Question implements Parcelable {
         this.createdBy = source.readString();
         long tmpDate = source.readLong();
         this.date = tmpDate == -1 ? null : new Date(tmpDate);
+        this.categoryId = source.readString();
+        this.categoryName = source.readString();
         this.answers = source.createTypedArrayList(Answer.CREATOR);
-        this.acceptedAnswer = source.readParcelable(Answer.class.getClassLoader());
+        this.closed = source.readByte() != 0;
     }
 
     protected Question(Parcel in) {
@@ -128,8 +146,10 @@ public class Question implements Parcelable {
         this.createdBy = in.readString();
         long tmpDate = in.readLong();
         this.date = tmpDate == -1 ? null : new Date(tmpDate);
+        this.categoryId = in.readString();
+        this.categoryName = in.readString();
         this.answers = in.createTypedArrayList(Answer.CREATOR);
-        this.acceptedAnswer = in.readParcelable(Answer.class.getClassLoader());
+        this.closed = in.readByte() != 0;
     }
 
     public static final Creator<Question> CREATOR = new Creator<Question>() {

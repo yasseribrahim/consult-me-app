@@ -130,10 +130,10 @@ public class UsersFragment extends Fragment implements UsersCallback, LinksCallb
         linksIds.clear();
 
         links.stream().forEach(e-> {
-            if(StorageHelper.getCurrentUser().isDoctor()) {
-                linksIds.add(e.getPatientId());
+            if(StorageHelper.getCurrentUser().isConsultant()) {
+                linksIds.add(e.getClientId());
             } else {
-                linksIds.add(e.getDoctorId());
+                linksIds.add(e.getConsultantId());
             }
         });
 
@@ -235,12 +235,12 @@ public class UsersFragment extends Fragment implements UsersCallback, LinksCallb
     public void onAddClickListener(User user) {
         var currentUser = StorageHelper.getCurrentUser();
         var link = new Link();
-        if (currentUser.isPatient()) {
-            link.setDoctorId(user.getUsername());
-            link.setPatientId(currentUser.getUsername());
+        if (currentUser.isClient()) {
+            link.setConsultantId(user.getUsername());
+            link.setClientId(currentUser.getUsername());
         } else {
-            link.setDoctorId(currentUser.getUsername());
-            link.setPatientId(user.getUsername());
+            link.setConsultantId(currentUser.getUsername());
+            link.setClientId(user.getUsername());
         }
 
         linksPresenter.save(link);

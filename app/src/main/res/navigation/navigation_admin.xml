@@ -3,23 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_admins">
-
-    <fragment
-        android:id="@+id/navigation_admins"
-        android:name="com.consult.me.app.ui.fragments.UsersAdminsFragment"
-        android:label="@string/menu_admins"
-        tools:layout="@layout/fragment_users" />
+    app:startDestination="@+id/navigation_consultants">
 
     <fragment
         android:id="@+id/navigation_consultants"
-        android:name="com.consult.me.app.ui.fragments.UsersDoctorsFragment"
+        android:name="com.consult.me.app.ui.fragments.UsersConsultantsFragment"
         android:label="@string/menu_consultants"
         tools:layout="@layout/fragment_users" />
 
     <fragment
-        android:id="@+id/navigation_patients"
-        android:name="com.consult.me.app.ui.fragments.UsersPatientsFragment"
+        android:id="@+id/navigation_clients"
+        android:name="com.consult.me.app.ui.fragments.UsersClientsFragment"
         android:label="@string/menu_clients"
         tools:layout="@layout/fragment_users" />
 
@@ -28,6 +22,12 @@
         android:name="com.consult.me.app.ui.fragments.ProfileFragment"
         android:label="@string/str_more_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.consult.me.app.ui.fragments.CategoriesFragment"
+        android:label="@string/str_more_categories"
+        tools:layout="@layout/fragment_categories" />
 
     <fragment
         android:id="@+id/navigation_about"

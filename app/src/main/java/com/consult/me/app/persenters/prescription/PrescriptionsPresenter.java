@@ -103,8 +103,8 @@ public class PrescriptionsPresenter implements BasePresenter {
                 for (var child : snapshot.getChildren()) {
                     var prescription = child.getValue(Prescription.class);
                     var currentUser = StorageHelper.getCurrentUser();
-                    var accepted = (currentUser.isPatient() && prescription.getPatientId().equalsIgnoreCase(currentUser.getUsername()) && prescription.getDoctorId().equalsIgnoreCase(username)) ||
-                            (currentUser.isDoctor() && prescription.getDoctorId().equalsIgnoreCase(currentUser.getUsername()) && prescription.getPatientId().equalsIgnoreCase(username));
+                    var accepted = (currentUser.isClient() && prescription.getPatientId().equalsIgnoreCase(currentUser.getUsername()) && prescription.getDoctorId().equalsIgnoreCase(username)) ||
+                            (currentUser.isConsultant() && prescription.getDoctorId().equalsIgnoreCase(currentUser.getUsername()) && prescription.getPatientId().equalsIgnoreCase(username));
                     if (accepted) {
                         prescriptions.add(prescription);
                     }

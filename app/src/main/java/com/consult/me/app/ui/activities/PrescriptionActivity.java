@@ -53,7 +53,7 @@ public class PrescriptionActivity extends BaseActivity implements PrescriptionsC
 
         prescription = getIntent().getParcelableExtra(Constants.ARG_OBJECT);
         currentUser = StorageHelper.getCurrentUser();
-        canEdit = currentUser.isDoctor();
+        canEdit = currentUser.isConsultant();
 
         if (prescription.getMedications() == null) {
             prescription.setMedications(new ArrayList<>());
@@ -167,7 +167,7 @@ public class PrescriptionActivity extends BaseActivity implements PrescriptionsC
 
     @Override
     public void onViewListener(Medication medication) {
-        if (currentUser.isDoctor()) {
+        if (currentUser.isConsultant()) {
             MedicationBottomSheetDialog dialog = MedicationBottomSheetDialog.newInstance(prescription, medication);
             dialog.show(getSupportFragmentManager(), "");
         }

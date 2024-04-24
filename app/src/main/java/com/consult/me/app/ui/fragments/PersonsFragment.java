@@ -17,17 +17,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.consult.me.app.Constants;
+import com.consult.me.app.R;
+import com.consult.me.app.databinding.FragmentPersonsBinding;
 import com.consult.me.app.models.Link;
 import com.consult.me.app.models.User;
 import com.consult.me.app.persenters.links.LinksCallback;
+import com.consult.me.app.persenters.links.LinksPresenter;
 import com.consult.me.app.persenters.user.UsersCallback;
 import com.consult.me.app.persenters.user.UsersPresenter;
-import com.consult.me.app.ui.activities.PrescriptionsActivity;
+import com.consult.me.app.ui.activities.QuestionsRepliedActivity;
 import com.consult.me.app.ui.adptres.PersonsAdapter;
 import com.consult.me.app.utilities.helpers.StorageHelper;
-import com.consult.me.app.R;
-import com.consult.me.app.databinding.FragmentPersonsBinding;
-import com.consult.me.app.persenters.links.LinksPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,19 +115,19 @@ public class PersonsFragment extends Fragment implements UsersCallback, LinksCal
     public void onGetLinksComplete(List<Link> links) {
         this.links.clear();
         this.links.addAll(links);
-        presenter.getUsers(StorageHelper.getCurrentUser().isDoctor() ? Constants.USER_TYPE_PATIENT : Constants.USER_TYPE_DOCTOR);
+        presenter.getUsers(StorageHelper.getCurrentUser().isConsultant() ? Constants.USER_TYPE_CLIENT : Constants.USER_TYPE_CONSULTANT);
     }
 
     @Override
     public void onGetUsersComplete(List<User> users) {
         this.users.clear();
-        var isCurrentUserDoctor = StorageHelper.getCurrentUser().isDoctor();
+        var isCurrentUserDoctor = StorageHelper.getCurrentUser().isConsultant();
         var ids = new ArrayList<String>();
         links.stream().forEach(e -> {
             if (isCurrentUserDoctor) {
-                ids.add(e.getPatientId());
+                ids.add(e.getClientId());
             } else {
-                ids.add(e.getDoctorId());
+                ids.add(e.getConsultantId());
             }
         });
 
@@ -189,15 +189,17 @@ public class PersonsFragment extends Fragment implements UsersCallback, LinksCal
 
     @Override
     public void onViewListener(User user) {
-        Intent intent = new Intent(getContext(), PrescriptionsActivity.class);
-        intent.putExtra(Constants.ARG_OBJECT, user);
-        startActivity(intent);
+        if (user.isClient()) {
+            Intent intent = new Intent(getContext(), QuestionsRepliedActivity.class);
+            intent.putExtra(Constants.ARG_OBJECT, user.getUsername());
+            startActivity(intent);
+        }
     }
 
     @Override
     public void onDeleteListener(User user) {
         String patientId, doctorId;
-        if (StorageHelper.getCurrentUser().isPatient()) {
+        if (StorageHelper.getCurrentUser().isClient()) {
             patientId = StorageHelper.getCurrentUser().getUsername();
             doctorId = user.getUsername();
         } else {

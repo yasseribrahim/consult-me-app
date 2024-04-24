@@ -35,12 +35,11 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Answer answer = answers.get(position);
 
-        holder.binding.username.setText(answer.getDoctorId());
+        holder.binding.username.setText(answer.getConsultantId());
         holder.binding.answer.setText(answer.getAnswer() + "");
         holder.binding.date.setText(DatesUtils.formatDate(answer.getDate()));
         holder.binding.btnAddDoctor.setVisibility(canAdd && !answer.isDone() ? View.VISIBLE : View.GONE);
-        holder.binding.addedFlag.setVisibility(answer.isDone() ? View.VISIBLE : View.GONE);
-        var canEdit = StorageHelper.getCurrentUser().getId().equalsIgnoreCase(answer.getDoctorId());
+        var canEdit = StorageHelper.getCurrentUser().getId().equalsIgnoreCase(answer.getConsultantId());
         holder.binding.containerActions.setVisibility(canEdit ? View.VISIBLE : View.GONE);
     }
 

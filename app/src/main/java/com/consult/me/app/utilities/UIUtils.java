@@ -34,10 +34,10 @@ public class UIUtils {
         switch (type) {
             case Constants.USER_TYPE_ADMIN:
                 return CustomApplication.getApplication().getApplicationContext().getString(R.string.str_account_type_admin);
-            case Constants.USER_TYPE_DOCTOR:
-                return CustomApplication.getApplication().getApplicationContext().getString(R.string.str_account_type_doctor);
-            case Constants.USER_TYPE_PATIENT:
-                return CustomApplication.getApplication().getApplicationContext().getString(R.string.str_account_type_patient);
+            case Constants.USER_TYPE_CONSULTANT:
+                return CustomApplication.getApplication().getApplicationContext().getString(R.string.str_account_type_consultant);
+            case Constants.USER_TYPE_CLIENT:
+                return CustomApplication.getApplication().getApplicationContext().getString(R.string.str_account_type_client);
         }
         return "N/A";
     }

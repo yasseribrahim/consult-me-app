@@ -36,7 +36,7 @@ public class MedicationsAdapter extends RecyclerView.Adapter<MedicationsAdapter.
         holder.binding.name.setText(medication.getMedicationName());
         holder.binding.dosage.setText(medication.getDosage());
         holder.binding.periodic.setText(holder.binding.periodic.getResources().getString(R.string.str_periodic_format, medication.getPeriodic() + ""));
-        holder.binding.containerRemove.setVisibility(StorageHelper.getCurrentUser().isDoctor() ? View.VISIBLE : View.GONE);
+        holder.binding.containerRemove.setVisibility(StorageHelper.getCurrentUser().isConsultant() ? View.VISIBLE : View.GONE);
     }
 
     private int getSize(String id) {

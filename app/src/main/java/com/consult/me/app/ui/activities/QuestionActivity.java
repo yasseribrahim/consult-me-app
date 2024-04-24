@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.consult.me.app.Constants;
+import com.consult.me.app.R;
+import com.consult.me.app.databinding.ActivityQuestionBinding;
+import com.consult.me.app.models.Category;
 import com.consult.me.app.models.ChatId;
 import com.consult.me.app.models.Notification;
 import com.consult.me.app.models.Question;
@@ -16,16 +19,15 @@ import com.consult.me.app.persenters.question.QuestionsCallback;
 import com.consult.me.app.persenters.question.QuestionsPresenter;
 import com.consult.me.app.persenters.user.UsersCallback;
 import com.consult.me.app.persenters.user.UsersPresenter;
+import com.consult.me.app.ui.fragments.CategorySelectorBottomSheetDialog;
 import com.consult.me.app.utilities.DatesUtils;
 import com.consult.me.app.utilities.helpers.LocaleHelper;
 import com.consult.me.app.utilities.helpers.StorageHelper;
-import com.consult.me.app.R;
-import com.consult.me.app.databinding.ActivityQuestionBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionActivity extends BaseActivity implements QuestionsCallback, UsersCallback, NotificationsCallback {
+public class QuestionActivity extends BaseActivity implements QuestionsCallback, UsersCallback, NotificationsCallback, CategorySelectorBottomSheetDialog.OnCategorySelectedCallback {
     private ActivityQuestionBinding binding;
     private QuestionsPresenter questionsPresenter;
     private NotificationsPresenter notificationsPresenter;
@@ -33,6 +35,7 @@ public class QuestionActivity extends BaseActivity implements QuestionsCallback,
     private Question question;
     private List<User> users;
     private User currentUser;
+    private Category selectedCategory;
     private boolean canEdit;
 
     @Override
@@ -65,7 +68,22 @@ public class QuestionActivity extends BaseActivity implements QuestionsCallback,
             }
         });
 
+        binding.btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                question.setClosed(true);
+                questionsPresenter.save(question);
+            }
+        });
+
         if (canEdit) {
+            binding.category.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CategorySelectorBottomSheetDialog dialog = CategorySelectorBottomSheetDialog.newInstance(selectedCategory);
+                    dialog.show(getSupportFragmentManager(), "");
+                }
+            });
             binding.btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -163,14 +181,27 @@ public class QuestionActivity extends BaseActivity implements QuestionsCallback,
     private void bind() {
         binding.title.setEnabled(canEdit);
         binding.description.setEnabled(canEdit);
-        binding.btnSave.setVisibility(canEdit ? View.VISIBLE : View.GONE);
+        binding.btnSave.setVisibility(canEdit && !question.isClosed() ? View.VISIBLE : View.GONE);
+        binding.btnClose.setVisibility(canEdit && !question.isClosed() ? View.VISIBLE : View.GONE);
 
-        binding.btnChat.setVisibility(!question.isAccepted() && currentUser.isDoctor() ? View.VISIBLE : View.GONE);
+        binding.btnChat.setVisibility(!question.isClosed() && currentUser.isConsultant() ? View.VISIBLE : View.GONE);
         binding.btnAnswers.setVisibility(question.getId() != null ? View.VISIBLE : View.GONE);
 
         binding.username.setText(question.getCreatedBy());
         binding.title.setText(question.getTitle());
         binding.description.setText(question.getDescription());
         binding.date.setText(DatesUtils.formatDate(question.getDate()));
+        binding.category.setText(question.getCategoryName());
+        if (question.getId() != null) {
+            selectedCategory = new Category(question.getCategoryId(), question.getCategoryName());
+        }
+    }
+
+    @Override
+    public void onCategorySelectedCallback(Category category) {
+        selectedCategory = category;
+        question.setCategoryId(category.getId());
+        question.setCategoryName(category.getName());
+        binding.category.setText(question.getCategoryName());
     }
 }

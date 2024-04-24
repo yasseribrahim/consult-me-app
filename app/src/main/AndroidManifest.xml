@@ -76,7 +76,7 @@
             android:theme="@style/AppTheme.ColoredStatusBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.consult.me.app.ui.activities.PrescriptionsActivity"
+            android:name="com.consult.me.app.ui.activities.QuestionsRepliedActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"

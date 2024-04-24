@@ -4,8 +4,8 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
 
     <string name="str_periodic_format">%s / Hour</string>
-    <string name="str_my_patients">My Patients</string>
-    <string name="str_my_doctors">My Doctors</string>
+    <string name="str_my_clients">My Clients</string>
+    <string name="str_my_consultants">My Consultants</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_admins">Admins</string>
@@ -20,6 +20,7 @@
 
     <string name="str_correct_answer">Correct Answer</string>
     <string name="str_save">Save</string>
+    <string name="str_close">Close</string>
     <string name="str_enter_value">Enter Value</string>
     <string name="str_ok">Ok</string>
     <string name="str_cancel">Cancel</string>
@@ -104,6 +105,7 @@
 
     <string name="str_more_profile">Profile</string>
     <string name="str_more_about">About</string>
+    <string name="str_more_categories">Categories</string>
     <string name="str_more_contacts">Contacts &amp; Description</string>
     <string name="str_more_logout">Logout</string>
 

@@ -36,10 +36,10 @@ public class PrescriptionsAdapter extends RecyclerView.Adapter<PrescriptionsAdap
 
         holder.binding.title.setText(prescription.getTitle());
         holder.binding.medicationCounter.setText(prescription.getMedications().size() + "");
-        holder.binding.username.setText(StorageHelper.getCurrentUser().isPatient() ? prescription.getDoctorId() : prescription.getPatientId());
+        holder.binding.username.setText(StorageHelper.getCurrentUser().isClient() ? prescription.getDoctorId() : prescription.getPatientId());
         holder.binding.description.setText(prescription.getDescription());
         holder.binding.date.setText(DatesUtils.formatDate(prescription.getDate()));
-        holder.binding.containerRemove.setVisibility(StorageHelper.getCurrentUser().isDoctor() ? View.VISIBLE : View.GONE);
+        holder.binding.containerRemove.setVisibility(StorageHelper.getCurrentUser().isConsultant() ? View.VISIBLE : View.GONE);
     }
 
     private int getSize(String id) {

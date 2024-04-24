@@ -30,7 +30,7 @@ public class RegistrationActivity extends BaseActivity implements UsersCallback 
         presenter = new UsersPresenter(this);
 
         user = new User();
-        int userType = Constants.USER_TYPE_PATIENT;
+        int userType = Constants.USER_TYPE_CLIENT;
         user.setType(userType);
 
         binding.btnRegistration.setOnClickListener(new View.OnClickListener() {

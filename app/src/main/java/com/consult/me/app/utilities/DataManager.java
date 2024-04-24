@@ -13,20 +13,20 @@ public class DataManager {
 
     public static void initUserAdmin() {
         User user = new User();
-        user.setId("AZFehdzSocXbhHprhpmYdtn3fRZ2");
-        user.setUsername("admin@medicine.com");
+        user.setId("W3ru58DFTrMUaf2mALz9vAxWrG42");
+        user.setUsername("admin@gmail.com");
         user.setPassword("123456");
         user.setFullName("Admin");
         user.setType(1);
-        NODE_USERS.child("AZFehdzSocXbhHprhpmYdtn3fRZ2").setValue(user);
+        NODE_USERS.child("W3ru58DFTrMUaf2mALz9vAxWrG42").setValue(user);
     }
     int[] resources = new int[]{
             R.layout.activity_about_edit,
             R.layout.activity_forget_password,
             R.layout.activity_grade_details,
             R.layout.activity_home_admin,
-            R.layout.activity_home_doctor,
-            R.layout.activity_home_patient,
+            R.layout.activity_home_client,
+            R.layout.activity_home_consultant,
             R.layout.activity_login,
             R.layout.activity_messaging,
             R.layout.activity_profile_edit,

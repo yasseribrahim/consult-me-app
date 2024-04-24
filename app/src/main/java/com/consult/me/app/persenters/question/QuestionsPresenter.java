@@ -3,6 +3,7 @@ package com.consult.me.app.persenters.question;
 import androidx.annotation.NonNull;
 
 import com.consult.me.app.Constants;
+import com.consult.me.app.models.Answer;
 import com.consult.me.app.models.Question;
 import com.consult.me.app.persenters.BasePresenter;
 import com.consult.me.app.utilities.helpers.StorageHelper;
@@ -102,7 +103,9 @@ public class QuestionsPresenter implements BasePresenter {
                 List<Question> questions = new ArrayList<>();
                 for (var child : snapshot.getChildren()) {
                     var question = child.getValue(Question.class);
-                    if(StorageHelper.getCurrentUser().isAdmin() || !question.isAccepted()) {
+                    var isAcceptedAdmin = StorageHelper.getCurrentUser().isAdmin() && !question.isClosed();
+                    var isAcceptedConsultant = StorageHelper.getCurrentUser().isConsultant() && question.getCategoryId().equalsIgnoreCase(StorageHelper.getCurrentUser().getCategoryId()) && !question.isClosed();
+                    if (isAcceptedAdmin || isAcceptedConsultant) {
                         questions.add(question);
                     }
                 }
@@ -147,7 +150,7 @@ public class QuestionsPresenter implements BasePresenter {
         });
     }
 
-    public void getQuestionsAccepted() {
+    public void getQuestionsReplied(String clientId) {
         callback.onShowLoading();
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -155,9 +158,10 @@ public class QuestionsPresenter implements BasePresenter {
                 List<Question> questions = new ArrayList<>();
                 var currentUsername = StorageHelper.getCurrentUser().getUsername();
                 for (var child : snapshot.getChildren()) {
-                    var service = child.getValue(Question.class);
-                    if (service.getAcceptedAnswer() != null && service.getAcceptedAnswer().getDoctorId().equalsIgnoreCase(currentUsername)) {
-                        questions.add(service);
+                    var question = child.getValue(Question.class);
+                    var accepted = question.getCreatedBy().equalsIgnoreCase(clientId) && question.getAnswers().contains(new Answer(currentUsername));
+                    if (accepted) {
+                        questions.add(question);
                     }
                 }
 

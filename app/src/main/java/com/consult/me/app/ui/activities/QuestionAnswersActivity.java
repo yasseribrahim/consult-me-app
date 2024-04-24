@@ -8,6 +8,8 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.consult.me.app.Constants;
+import com.consult.me.app.R;
+import com.consult.me.app.databinding.ActivityQuestionAnswersBinding;
 import com.consult.me.app.models.Answer;
 import com.consult.me.app.models.ChatId;
 import com.consult.me.app.models.Link;
@@ -15,6 +17,7 @@ import com.consult.me.app.models.Notification;
 import com.consult.me.app.models.Question;
 import com.consult.me.app.models.User;
 import com.consult.me.app.persenters.links.LinksCallback;
+import com.consult.me.app.persenters.links.LinksPresenter;
 import com.consult.me.app.persenters.notification.NotificationsCallback;
 import com.consult.me.app.persenters.notification.NotificationsPresenter;
 import com.consult.me.app.persenters.question.QuestionsCallback;
@@ -26,9 +29,6 @@ import com.consult.me.app.ui.fragments.AnswerBottomSheetDialog;
 import com.consult.me.app.utilities.DatesUtils;
 import com.consult.me.app.utilities.helpers.LocaleHelper;
 import com.consult.me.app.utilities.helpers.StorageHelper;
-import com.consult.me.app.R;
-import com.consult.me.app.databinding.ActivityQuestionAnswersBinding;
-import com.consult.me.app.persenters.links.LinksPresenter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -145,8 +145,8 @@ public class QuestionAnswersActivity extends BaseActivity implements QuestionsCa
     }
 
     private void bind() {
-        binding.btnAddAnswer.setVisibility(!question.isAccepted() && currentUser.isDoctor() ? View.VISIBLE : View.GONE);
-        binding.btnChat.setVisibility(currentUser.isDoctor() ? View.VISIBLE : View.GONE);
+        binding.btnAddAnswer.setVisibility(!question.isClosed() && currentUser.isConsultant() ? View.VISIBLE : View.GONE);
+        binding.btnChat.setVisibility(currentUser.isConsultant() ? View.VISIBLE : View.GONE);
 
         binding.question.setText(question.getTitle());
         binding.username.setText(question.getCreatedBy());
@@ -161,19 +161,10 @@ public class QuestionAnswersActivity extends BaseActivity implements QuestionsCa
 
     @Override
     public void onAnswerAddDoctorListener(Answer answer) {
-        if (answer.isDone()) {
-            question.setAcceptedAnswer(answer);
-        } else {
-            question.setAcceptedAnswer(null);
-        }
-        for (Answer answer1 : question.getAnswers()) {
-            answer1.setDone(answer1.equals(answer));
-        }
-
-        if(currentUser.isPatient()) {
+        if (currentUser.isClient()) {
             Link link = new Link();
-            link.setDoctorId(answer.getDoctorId());
-            link.setPatientId(currentUser.getUsername());
+            link.setConsultantId(answer.getConsultantId());
+            link.setClientId(currentUser.getUsername());
             linksPresenter.save(link);
         }
     }
@@ -197,7 +188,7 @@ public class QuestionAnswersActivity extends BaseActivity implements QuestionsCa
         var user1 = currentUser;
         User user2 = null;
         for (User user : users) {
-            if (user.getUsername().equalsIgnoreCase(answer.getDoctorId())) {
+            if (user.getUsername().equalsIgnoreCase(answer.getConsultantId())) {
                 user2 = user;
                 break;
             }

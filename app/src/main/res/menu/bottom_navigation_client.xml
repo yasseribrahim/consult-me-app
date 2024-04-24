@@ -9,9 +9,9 @@
         android:icon="@drawable/ic_questions"
         android:title="@string/menu_questions" />
     <item
-        android:id="@+id/navigation_my_doctors"
+        android:id="@+id/navigation_my_consultants"
         android:icon="@drawable/ic_doctor"
-        android:title="@string/str_my_doctors" />
+        android:title="@string/str_my_consultants" />
     <item
         android:id="@+id/navigation_about"
         android:icon="@drawable/ic_about"

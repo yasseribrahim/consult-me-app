@@ -104,7 +104,7 @@ public class AnswerBottomSheetDialog extends BottomSheetDialogFragment implement
         });
 
         binding.answer.setText(answer.getAnswer() + "");
-        binding.username.setText(answer.getDoctorId());
+        binding.username.setText(answer.getConsultantId());
     }
 
     @Override

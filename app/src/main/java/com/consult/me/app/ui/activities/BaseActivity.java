@@ -106,9 +106,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             switch (user.getType()) {
                 case Constants.USER_TYPE_ADMIN ->
                         intent = new Intent(this, com.consult.me.app.ui.activities.admin.HomeActivity.class);
-                case Constants.USER_TYPE_DOCTOR ->
+                case Constants.USER_TYPE_CONSULTANT ->
                         intent = new Intent(this, HomeActivity.class);
-                case Constants.USER_TYPE_PATIENT ->
+                case Constants.USER_TYPE_CLIENT ->
                         intent = new Intent(this, com.consult.me.app.ui.activities.client.HomeActivity.class);
                 default ->
                         Toast.makeText(this, "This user not support from app, Please contact with admin", Toast.LENGTH_LONG).show();

@@ -6,20 +6,23 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.consult.me.app.Constants;
+import com.consult.me.app.R;
+import com.consult.me.app.databinding.ActivityUserBinding;
+import com.consult.me.app.models.Category;
 import com.consult.me.app.models.User;
 import com.consult.me.app.persenters.user.UsersCallback;
 import com.consult.me.app.persenters.user.UsersPresenter;
+import com.consult.me.app.ui.activities.BaseActivity;
+import com.consult.me.app.ui.fragments.CategorySelectorBottomSheetDialog;
 import com.consult.me.app.utilities.UIUtils;
 import com.consult.me.app.utilities.helpers.LocaleHelper;
-import com.consult.me.app.R;
-import com.consult.me.app.databinding.ActivityUserBinding;
-import com.consult.me.app.ui.activities.BaseActivity;
 
-public class UserActivity extends BaseActivity implements UsersCallback {
+public class UserActivity extends BaseActivity implements UsersCallback, CategorySelectorBottomSheetDialog.OnCategorySelectedCallback {
     private ActivityUserBinding binding;
 
     private UsersPresenter presenter;
     private User user;
+    private Category selectedCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +37,18 @@ public class UserActivity extends BaseActivity implements UsersCallback {
             user = getIntent().getParcelableExtra(Constants.ARG_OBJECT);
         } else {
             user = new User();
-            int userType = getIntent().getIntExtra(Constants.ARG_ID, Constants.USER_TYPE_PATIENT);
+            int userType = getIntent().getIntExtra(Constants.ARG_ID, Constants.USER_TYPE_CLIENT);
             user.setType(userType);
         }
         bind();
+
+        binding.category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CategorySelectorBottomSheetDialog dialog = CategorySelectorBottomSheetDialog.newInstance(selectedCategory);
+                dialog.show(getSupportFragmentManager(), "");
+            }
+        });
 
         binding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,5 +141,17 @@ public class UserActivity extends BaseActivity implements UsersCallback {
         binding.fullName.setText(user.getFullName());
         binding.address.setText(user.getAddress());
         binding.phone.setText(user.getPhone());
+        binding.category.setText(user.getCategoryName());
+        if (user.getId() != null) {
+            selectedCategory = new Category(user.getCategoryId(), user.getCategoryName());
+        }
+    }
+
+    @Override
+    public void onCategorySelectedCallback(Category category) {
+        selectedCategory = category;
+        user.setCategoryId(category.getId());
+        user.setCategoryName(category.getName());
+        binding.category.setText(user.getCategoryName());
     }
 }

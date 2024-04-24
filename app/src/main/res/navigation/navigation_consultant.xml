@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_patients">
+    app:startDestination="@+id/navigation_clients">
 
     <fragment
-        android:id="@+id/navigation_patients"
-        android:name="com.consult.me.app.ui.fragments.UsersPatientsFragment"
+        android:id="@+id/navigation_clients"
+        android:name="com.consult.me.app.ui.fragments.UsersClientsFragment"
         android:label="@string/menu_clients"
         tools:layout="@layout/fragment_users" />
 
@@ -19,14 +19,14 @@
 
     <fragment
         android:id="@+id/navigation_questions_accepted"
-        android:name="com.consult.me.app.ui.fragments.QuestionsAcceptedFragment"
+        android:name="com.consult.me.app.ui.fragments.QuestionsRepliedFragment"
         android:label="@string/menu_questions_accepted"
         tools:layout="@layout/fragment_questions" />
 
     <fragment
-        android:id="@+id/navigation_my_patients"
+        android:id="@+id/navigation_my_clients"
         android:name="com.consult.me.app.ui.fragments.PersonsFragment"
-        android:label="@string/str_my_patients"
+        android:label="@string/str_my_clients"
         tools:layout="@layout/fragment_persons" />
 
     <fragment

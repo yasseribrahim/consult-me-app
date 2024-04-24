@@ -7,16 +7,16 @@ import java.util.Objects;
 
 public class Link implements Parcelable {
     private String id;
-    private String doctorId;
-    private String patientId;
+    private String consultantId;
+    private String clientId;
 
     public Link() {
     }
 
-    public Link(String id, String doctorId, String patientId) {
+    public Link(String id, String consultantId, String clientId) {
         this.id = id;
-        this.doctorId = doctorId;
-        this.patientId = patientId;
+        this.consultantId = consultantId;
+        this.clientId = clientId;
     }
 
     public String getId() {
@@ -27,27 +27,27 @@ public class Link implements Parcelable {
         this.id = id;
     }
 
-    public String getDoctorId() {
-        return doctorId;
+    public String getConsultantId() {
+        return consultantId;
     }
 
-    public void setDoctorId(String doctorId) {
-        this.doctorId = doctorId;
+    public void setConsultantId(String consultantId) {
+        this.consultantId = consultantId;
     }
 
-    public String getPatientId() {
-        return patientId;
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
     public boolean equals2(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Link link = (Link) o;
-        return doctorId.equals(link.doctorId) && patientId.equals(link.patientId);
+        return consultantId.equals(link.consultantId) && clientId.equals(link.clientId);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Link implements Parcelable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(doctorId, patientId);
+        return Objects.hash(consultantId, clientId);
     }
 
     @Override
@@ -71,20 +71,20 @@ public class Link implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.id);
-        dest.writeString(this.doctorId);
-        dest.writeString(this.patientId);
+        dest.writeString(this.consultantId);
+        dest.writeString(this.clientId);
     }
 
     public void readFromParcel(Parcel source) {
         this.id = source.readString();
-        this.doctorId = source.readString();
-        this.patientId = source.readString();
+        this.consultantId = source.readString();
+        this.clientId = source.readString();
     }
 
     protected Link(Parcel in) {
         this.id = in.readString();
-        this.doctorId = in.readString();
-        this.patientId = in.readString();
+        this.consultantId = in.readString();
+        this.clientId = in.readString();
     }
 
     public static final Creator<Link> CREATOR = new Creator<Link>() {
