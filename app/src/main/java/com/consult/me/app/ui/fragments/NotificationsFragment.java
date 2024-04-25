@@ -19,7 +19,6 @@ import com.consult.me.app.Constants;
 import com.consult.me.app.R;
 import com.consult.me.app.databinding.FragmentNotificationsBinding;
 import com.consult.me.app.models.Notification;
-import com.consult.me.app.models.Prescription;
 import com.consult.me.app.models.Question;
 import com.consult.me.app.persenters.notification.NotificationsCallback;
 import com.consult.me.app.persenters.notification.NotificationsPresenter;
@@ -133,9 +132,9 @@ public class NotificationsFragment extends Fragment implements NotificationsCall
             intent.putExtra(Constants.ARG_OBJECT, question);
         } else if (notification.getPrescriptionId() != null && notification.getPrescriptionId().startsWith("prescription")) {
             intent = new Intent(getContext(), SplashActivity.class);
-            var prescription = new Prescription();
-            prescription.setId(notification.getPrescriptionId());
-            intent.putExtra(Constants.ARG_OBJECT, prescription);
+//            var prescription = new Prescription();
+//            prescription.setId(notification.getPrescriptionId());
+//            intent.putExtra(Constants.ARG_OBJECT, prescription);
         }
         if (intent != null) {
             startActivity(intent);

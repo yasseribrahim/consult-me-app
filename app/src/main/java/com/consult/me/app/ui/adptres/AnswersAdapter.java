@@ -38,7 +38,7 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
         holder.binding.username.setText(answer.getConsultantId());
         holder.binding.answer.setText(answer.getAnswer() + "");
         holder.binding.date.setText(DatesUtils.formatDate(answer.getDate()));
-        holder.binding.btnAddDoctor.setVisibility(canAdd && !answer.isDone() ? View.VISIBLE : View.GONE);
+        holder.binding.btnAddConsultant.setVisibility(canAdd && !answer.isDone() ? View.VISIBLE : View.GONE);
         var canEdit = StorageHelper.getCurrentUser().getId().equalsIgnoreCase(answer.getConsultantId());
         holder.binding.containerActions.setVisibility(canEdit ? View.VISIBLE : View.GONE);
     }
@@ -61,8 +61,8 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
             super(view);
             binding = ItemAnswerBinding.bind(view);
             binding.btnChat.setVisibility(canChat ? View.VISIBLE : View.GONE);
-            binding.btnAddDoctor.setVisibility(canAdd ? View.VISIBLE : View.GONE);
-            binding.btnAddDoctor.setOnClickListener(new View.OnClickListener() {
+            binding.btnAddConsultant.setVisibility(canAdd ? View.VISIBLE : View.GONE);
+            binding.btnAddConsultant.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (listener != null) {
