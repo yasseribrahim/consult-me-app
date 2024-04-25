@@ -9,7 +9,6 @@ public interface Constants {
     String NODE_NAME_NOTIFICATIONS= "notifications";
     String NODE_NAME_USERS = "users";
     String NODE_NAME_QUESTIONS = "questions";
-    String NODE_NAME_PRESCRIPTIONS = "prescriptions";
     String NODE_NAME_LINKS = "links";
     String NODE_NAME_CATEGORIES = "categories";
     String NODE_NAME_TOKENS = "tokens";

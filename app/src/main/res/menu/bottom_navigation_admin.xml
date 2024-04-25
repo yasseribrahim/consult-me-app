@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_consultants"
-        android:icon="@drawable/ic_doctor"
+        android:icon="@drawable/ic_consultant"
         android:title="@string/menu_consultants" />
     <item
         android:id="@+id/navigation_clients"

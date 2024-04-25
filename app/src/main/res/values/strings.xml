@@ -52,7 +52,7 @@
     <string name="str_login_successful">Login Successful</string>
     <string name="str_username_invalid">Invalid Username</string>
 
-    <string name="str_add_doctor">Add Doctor</string>
+    <string name="str_add_consultant">Add Consultant</string>
 
     <string name="str_title_question">Question</string>
     <string name="str_title">Title</string>
